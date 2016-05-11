@@ -1,5 +1,5 @@
 <html>
-    <head>
+<head>
     <link rel="stylesheet" type="text/css" href="ClassSelect.css">
     <script type="text/javascript">
 
@@ -129,8 +129,8 @@
                             flag = 1;
                         }
                     } else if (currentOption.selected == true && currentOption.value == "CMSC421") {
-                        if (fromReqList.innerHTML.includes("CMSC341") == false && (fromReqList.innerHTML.includes("CMSC313") == false)) {
-                            alert("Unable to add class; CMSC313 and/or CMSC341 are not present.");
+                        if (fromReqList.innerHTML.includes("CMSC341") == false) {
+                            alert("Unable to add class; CMSC341 is not present.");
                             flag = 1;
                         }
                     } else if (currentOption.selected == true && currentOption.value == "CMSC441") {
@@ -188,164 +188,172 @@
         * Takes required classes that student has selected and copies them...
         * ...into the list to be submitted
         */
-function elecToChosen()
-            {
-                var result;
+        function elecToChosen() {
+            var result;
 
-                //. we need this to go check pre-requisites
-                var fromReqList = document.getElementById("fromReqList");
+            //. we need this to go check pre-requisites
+            var fromReqList = document.getElementById("fromReqList");
 
-                //get the classes the student has selected
-                var elecList = document.getElementById("elecList");
+            //get the classes the student has selected
+            var fromElecList = document.getElementById("elecList");
 
-                //get the list area that would be submitted
-                var fromElecList = document.getElementById("fromElecList");
-
-
-                var flag = 0;
+            //get the list area that would be submitted
+            var fromElecList = document.getElementById("fromElecList");
 
 
-                 //loop through loop through selected classes
-                for (i = 0; i < elecList.length; i++) {
-                    currentOption = elecList[i];
+            var flag = 0;
 
-                    // 
-                    if (currentOption.selected == true) {
-                        var focus = elecList[i];
-                    }
 
-                    // If this option is selected and doesn't already exist in the list, then add it
-                    if (currentOption.selected === true && !fromElecList.innerHTML.includes(currentOption.value)) {
-                        if (currentOption.selected == true && currentOption.value == "CMSC426") {
-                            if (fromReqList.innerHTML.includes("CMSC331") == false && (fromReqList.innerHTML.includes("CMSC341") == false)) {
-                                alert("Unable to add class; CMSC331 and/or CMSC341 is not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC431") {
-                            if ((fromReqList.innerHTML.includes("CMSC313") == false) && (fromReqList.innerHTML.includes("CMSC341") == false)) {
-                                alert("Unable to add class; CMSC313 and/or CMSC341 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC433") {
-                            if (fromReqList.innerHTML.includes("CMSC331") == false) {
-                                alert("Unable to add class; CMSC331 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC435") {
-                            if ((fromReqList.innerHTML.includes("CMSC313") == false) && (fromReqList.innerHTML.includes("CMSC341") == false)) {
-                                alert("Unable to add class; CMSC313 and/or CMSC341 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "CMSC437") {
-                            if ((fromReqList.innerHTML.includes("CMSC341") == false) && (fromReqList.innerHTML.includes("MATH221") == false)) {
-                                alert("Unable to add class; CMSC341 and/or MATH221 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC448") {
-                            if (fromReqList.innerHTML.includes("CMSC447") == false) {
-                                alert("Unable to add class; CMSC447 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC451") {
-                            if ((fromReqList.innerHTML.includes("CMSC203") == false)) {
-                                alert("Unable to add class; CMSC203 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC455") {
-                            if ((fromReqList.innerHTML.includes("CMSC341") == false)) {
-                                alert("Unable to add class; CMSC341 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC456") {
-                            if ((fromReqList.innerHTML.includes("CMSC341") == false)) {
-                                alert("Unable to add class; CMSC341 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC461") {
-                            if (fromReqList.innerHTML.includes("CMSC341") == false) {
-                                alert("Unable to add class; CMSC341 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC471") {
-                            if (fromReqList.innerHTML.includes("CMSC341") == false) {
-                                alert("Unable to add class; CMSC341 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "CMSC479") {
-                            if (fromReqList.innerHTML.includes("CMSC471") == false) {
-                                alert("Unable to add class; CMSC471 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC481") {
-                            if (fromReqList.innerHTML.includes("CMSC341") == false) {
-                                alert("Unable to add class; CMSC341 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CMSC483") {
-                            if (fromReqList.innerHTML.includes("CMSC421") == false) {
-                                alert("Unable to add class; CMSC421 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "CMSC493") {
-                            if (fromReqList.innerHTML.includes("CMSC435") == false && (fromReqList.innerHTML.includes("CMSC471") == false)) {
-                                alert("Unable to add class; CMSC435 and/or CMSC471 not taken.");
-                                flag = 1;
-                            }
-			 } else if (currentOption.selected == true && currentOption.value == "MATH225") {
-                            if (fromReqList.innerHTML.includes("MATH152") == false) {
-                                alert("Unable to add class; MATH152 not taken.");
-                                flag = 1;
-                            }
-			 } else if (currentOption.selected == true && currentOption.value == "MATH251") {
-                            if (fromReqList.innerHTML.includes("MATH152") == false) {
-                                alert("Unable to add class; MATH152 not taken.");
-                                flag = 1;
-                            }
-			 } else if (currentOption.selected == true && currentOption.value == "MATH301") {
-                            if (fromReqList.innerHTML.includes("MATH152") == false && (fromReqList.innerHTML.includes("MATH221") == false)) {
-                                alert("Unable to add class; MATH152 and/or MATH221 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "MATH381") {
-                            if ((fromReqList.innerHTML.includes("MATH221") == false)) {
+            //loop through loop through selected classes
+            for (i = 0; i < elecList.length; i++) {
+                currentOption = elecList[i];
+
+                //
+                if (currentOption.selected == true) {
+                    var focus = elecList[i];
+                }
+
+                // If this option is selected and doesn't already exist in the list, then add it
+                if (currentOption.selected === true && !fromElecList.innerHTML.includes(currentOption.value)) {
+                    if (currentOption.selected == true && currentOption.value == "CMSC426") {
+                        if (fromReqList.innerHTML.includes("CMSC421") == false) {
+                            alert("Unable to add class; CMSC421 is not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC431") {
+                        if ((fromReqList.innerHTML.includes("CMSC313") == false) && (fromReqList.innerHTML.includes("CMSC331") == false) && (fromReqList.innerHTML.includes("CMSC341") == false)) {
+                            alert("Unable to add class; CMSC313, 331 and 341 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC433") {
+                        if (fromReqList.innerHTML.includes("CMSC331") == false) {
+                            alert("Unable to add class; CMSC331 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC435") {
+                        if (!(fromReqList.innerHTML.includes("CMSC313") == false) && !(fromReqList.innerHTML.includes("CMSC341") == false)) {
+                            if (fromReqList.innerHTML.includes("MATH221") == false) {
                                 alert("Unable to add class; MATH221 not taken.");
                                 flag = 1;
                             }
-			} else if (currentOption.selected == true && currentOption.value == "MATH430") {
-                            if (fromReqList.innerHTML.includes("MATH251") == false && (fromReqList.innerHTML.includes("MATH301") == false)) {
-                                alert("Unable to add class; MATH251 and/or MATH301 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "MATH441") {
-                            if (fromReqList.innerHTML.includes("CMSC201") == false && (fromReqList.innerHTML.includes("MATH225") == false) 
-				&& (fromReqList.innerHTML.includes("MATH251") == false) && (fromReqList.innerHTML.includes("MATH301") == false)) {
-                                alert("Unable to add class; CMSC201, MATH225, MATH251, and/or MATH301 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "MATH452") {
-                            if (fromReqList.innerHTML.includes("STAT355") == false) {
-                                alert("Unable to add class; STAT355 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "MATH475") {
-                            if (fromReqList.innerHTML.includes("MATH301") == false) {
-                                alert("Unable to add class; MATH301 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "MATH481") {
-                            if (fromReqList.innerHTML.includes("MATH221") == false  && (fromReqList.innerHTML.includes("MATH225") == false) 
-				&& (fromReqList.innerHTML.includes("MATH251") == false)) {
-                                alert("Unable to add class; MATH221, MATH225, and/or MATH251 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "MATH483") {
-                            if (fromReqList.innerHTML.includes("MATH381") == false) {
-                                alert("Unable to add class; MATH381 not taken.");
-                                flag = 1;
-                            }
+                        } else {
+                            alert("Unable to add class; CMSC313 and CMSC341 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC437") {
+                        if ((fromReqList.innerHTML.includes("CMSC341") == false) && (fromReqList.innerHTML.includes("MATH221") == false)) {
+                            alert("Unable to add class; CMSC341 and MATH221 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC448") {
+                        if (fromReqList.innerHTML.includes("CMSC447") == false) {
+                            alert("Unable to add class; CMSC447 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC451") {
+                        if ((fromReqList.innerHTML.includes("CMSC202") == false) && (fromReqList.innerHTML.includes("CMSC203") == false)) {
+                            alert("Unable to add class; CMSC202 and CMSC203 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC455") {
+                        if ((fromReqList.innerHTML.includes("CMSC341") == false) && (fromReqList.innerHTML.includes("MATH152") == false) && (fromReqList.innerHTML.includes("MATH221") == false)) {
+                            alert("Unable to add class; CMSC331 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC456") {
+                        if ((fromReqList.innerHTML.includes("CMSC341") == false) && (fromReqList.innerHTML.includes("MATH221") == false)) {
+                            alert("Unable to add class; Either CMSC341 or MATH221 not taken.");
+                            flag = 1;
+                        } else if ((fromReqList.innerHTML.includes("MATH152") == false) || (fromReqList.innerHTML.includes("MATH142") == false)) {
+                            alert("Unable to add class; Either MATH152 or MATH142 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC461") {
+                        if (fromReqList.innerHTML.includes("CMSC341") == false) {
+                            alert("Unable to add class; CMSC341 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC471") {
+                        if (fromReqList.innerHTML.includes("CMSC341") == false) {
+                            alert("Unable to add class; CMSC341 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC479") {
+                        if (fromElecList.innerHTML.includes("CMSC471") == false) {
+                            alert("Unable to add class; CMSC471 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC481") {
+                        if (fromReqList.innerHTML.includes("CMSC341") == false) {
+                            alert("Unable to add class; CMSC341 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC483") {
+                        if (fromReqList.innerHTML.includes("CMSC421") == false) {
+                            alert("Unable to add class; CMSC421 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CMSC493") {
+                        if ((fromElecList.innerHTML.includes("CMSC435") == false) && (fromElecList.innerHTML.includes("CMSC471") == false)) {
+                            alert("Unable to add class; CMSC435 and CMSC471 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH225") {
+                        if (fromReqList.innerHTML.includes("MATH152") == false) {
+                            alert("Unable to add class MATH225; MATH152 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH251") {
+                        if (fromReqList.innerHTML.includes("MATH152") == false) {
+                            alert("Unable to add class MATH251; MATH152 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH301") {
+                        if (fromReqList.innerHTML.includes("MATH152") == false || fromReqList.innerHTML.includes("MATH221") == false) {
+                            alert("Unable to add class MATH301; MATH152 or MATH221 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH381") {
+                        if (fromReqList.innerHTML.includes("MATH221") == false) {
+                            alert("Unable to add class MATH381; MATH221 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH430") {
+                        if (fromReqList.innerHTML.includes("MATH251") == true || fromReqList.innerHTML.includes("MATH301") == true) {
+                            flag = 0;
+                        } else {
+                            alert("Unable to add class MATH430; MATH251 or MATH301 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH441") {
+                        if (fromReqList.innerHTML.includes("CMSC201") == false || fromReqList.innerHTML.includes("MATH225") == false ||
+                            fromReqList.innerHTML.includes("MATH251") == false || fromReqList.innerHTML.includes("MATH301") == false) {
+                            alert("Unable to add class MATH441; CMSC201, MATH225, MATH251 or MATH301 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH452") {
+                        if (fromReqList.innerHTML.includes("STAT355") == false) {
+                            alert("Unable to add class MATH452; STAT355 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH475") {
+                        if (fromReqList.innerHTML.includes("MATH301") == false) {
+                            alert("Unable to add class MATH475; MATH301 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH481") {
+                        if (fromReqList.innerHTML.includes("MATH221") == false || fromReqList.innerHTML.includes("MATH225") == false || fromReqList.innerHTML.includes("MATH251") == false) {
+                            alert("Unable to add class; MATH221, MATH225 or MATH251 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "MATH483") {
+                        if (fromReqList.innerHTML.includes("MATH381") == false) {
+                            alert("Unable to add class MATH483; MATH381 not taken.");
+                            flag = 1;
                         }
                     }
                 }
+            }
 
 
             if (flag == 0) {
@@ -370,161 +378,101 @@ function elecToChosen()
         * Takes required classes that student has selected and copies them...
         * ...into the list to be submitted
         */
-            function scienceToChosen(){
-                var result;
+        function scienceToChosen() {
+            var result;
 
-                //. we need this to go check pre-requisites
-                var fromReqList = document.getElementById("fromReqList");
+            //. we need this to go check pre-requisites
+            var fromReqList = document.getElementById("fromReqList");
 
-                //get the classes the student has selected
-                var scienceList = document.getElementById("scienceList");
+            //get the classes the student has selected
+            var scienceList = document.getElementById("scienceList");
 
-                //get the list area that would be submitted
-                var fromScienceList = document.getElementById("fromScienceList");
+            //get the list area that would be submitted
+            var fromScienceList = document.getElementById("fromScienceList");
 
-                var flag = 0;
-                //loop through loop through selected classes
+            var flag = 0;
+            //loop through loop through selected classes
 
-                for (i = 0; i < scienceList.length; i++) {
-                    currentOption = scienceList[i];
+            for (i = 0; i < scienceList.length; i++) {
+                currentOption = scienceList[i];
 
-                    if (currentOption.selected == true) {
-                        var focus = scienceList[i];
-                    }
+                if (currentOption.selected == true) {
+                    var focus = scienceList[i];
+                }
 
-                    // If this option is selected and doesn't already exist in the list, then add it
-                    if (currentOption.selected === true && !fromScienceList.innerHTML.includes(currentOption.value)) {  
-                        if (currentOption.selected == true && currentOption.value == "BIOL142") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == true) {
-                                if (fromReqList.innerHTML.includes("MATH151") == false) {
-                                    alert("Unable to add class. MATH151 not taken.");
-                                    flag = 1;
-                                }
-                            }
-                            else {
-                                alert("Unable to add class; BIOL141 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL141") {
+                // If this option is selected and doesn't already exist in the list, then add it
+                if (currentOption.selected === true && !fromScienceList.innerHTML.includes(currentOption.value)) {
+                    if (currentOption.selected == true && currentOption.value == "BIOL142") {
+                        if (fromScienceList.innerHTML.includes("BIOL141") == true) {
                             if (fromReqList.innerHTML.includes("MATH151") == false) {
-                                alert("Unable to add class; MATH151 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "CHEM101") {
-                            if (fromReqList.innerHTML.includes("MATH151") == false) {
-                                alert("Unable to add class; MATH151 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CHEM102") {
-                            if (fromScienceList.innerHTML.includes("CHEM101") == false) {
-                                alert("Unable to add class. CHEM101 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "PHYS121") {
-                            if (fromScienceList.innerHTML.includes("MATH151") == false) {
                                 alert("Unable to add class. MATH151 not taken.");
                                 flag = 1;
                             }
-                        } else if (currentOption.selected == true && currentOption.value == "PHYS122") {
-                            if (fromScienceList.innerHTML.includes("PHYS121") == false && fromScienceList.innerHTML.includes("MATH152") == false) {
-                                alert("Unable to add class. PHYS121 and/or MATH152 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL251") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false && fromScienceList.innerHTML.includes("CHEM102") == false) {
-                                alert("Unable to add class. BIOL141 and/or CHEM102 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "BIOL251L") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false && fromScienceList.innerHTML.includes("CHEM102") == false) {
-                                alert("Unable to add class. BIOL141 or CHEM102 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "BIOL252") {
-                            if (fromScienceList.innerHTML.includes("BIOL251") == false) {
-                                alert("Unable to add class. BIOL251 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "BIOL252L") {
-                            if (fromScienceList.innerHTML.includes("BIOL251") == false) {
-                                alert("Unable to add class. BIOL251 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "BIOL275") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false) {
-                                alert("Unable to add class. BIOL141 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL301") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false) {
-                                alert("Unable to add class. BIOL141 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL302") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false && fromScienceList.innerHTML.includes("MATH151") == false) {
-                                alert("Unable to add class. BIOL141 and/or MATH151 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL302L") {
-                            if (fromScienceList.innerHTML.includes("BIOL141") == false && fromScienceList.innerHTML.includes("MATH151") == false) {
-                                alert("Unable to add class. BIOL141 and/or MATH151 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL303") {
-                            if (fromScienceList.innerHTML.includes("BIOL302") == false && fromScienceList.innerHTML.includes("MATH151") == false 
-			&& fromScienceList.innerHTML.includes("CHEM102") == false) {
-                                alert("Unable to add class. BIOL302, CHEM102 and/or MATH151 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL303L") {
-                            if (fromScienceList.innerHTML.includes("BIOL302") == false && fromScienceList.innerHTML.includes("MATH151") == false 
-			&& fromScienceList.innerHTML.includes("CHEM102") == false) {
-                                alert("Unable to add class. BIOL302, CHEM102 and/or MATH151 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL304") {
-                            if (fromScienceList.innerHTML.includes("BIOL303") == false) {
-                                alert("Unable to add class. BIOL303 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL304L") {
-                            if (fromScienceList.innerHTML.includes("BIOL303") == false) {
-                                alert("Unable to add class. BIOL303 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL305") {
-                            if (fromScienceList.innerHTML.includes("BIOL303") == false) {
-                                alert("Unable to add class. BIOL303 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "BIOL305L") {
-                            if (fromScienceList.innerHTML.includes("BIOL303") == false) {
-                                alert("Unable to add class. BIOL303 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "CHEM102L") {
-                            if (fromScienceList.innerHTML.includes("CHEM101") == false) {
-                                alert("Unable to add class. CHEM101 not taken.");
-                                flag = 1;
-                            }
-			} else if (currentOption.selected == true && currentOption.value == "PHYS122L") {
-                            if (fromScienceList.innerHTML.includes("PHYS122") == false) {
-                                alert("Unable to add class. PHYS122 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "PHYS224") {
-                            if (fromScienceList.innerHTML.includes("PHYS122") == false) {
-                                alert("Unable to add class. PHYS122 not taken.");
-                                flag = 1;
-                            }
-                        } else if (currentOption.selected == true && currentOption.value == "PHYS304") {
-                            if (fromScienceList.innerHTML.includes("PHYS122") == false) {
-                                alert("Unable to add class. PHYS122 not taken.");
-                                flag = 1;
-                            }
+                        }
+                        else {
+                            alert("Unable to add class; BIOL141 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CHEM102") {
+                        if (fromScienceList.innerHTML.includes("CHEM101") == false) {
+                            alert("Unable to add class. CHEM101 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "PHYS122") {
+                        if (fromScienceList.innerHTML.includes("PHYS121") == false) {
+                            alert("Unable to add class. PHYS121 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "BIOL251L") {
+                        if (!fromScienceList.innerHTML.includes("BIOL251") == true || !fromScienceList.innerHTML.includes("CHEM102L") == true) {
+                            flag = 0;
+                        } else {
+                            alert("Unable to add class. BIOL251 or CHEM102L not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "BIOL252") {
+                        if (fromScienceList.innerHTML.includes("BIOL251") == false) {
+                            alert("Unable to add class. BIOL251 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "BIOL252L") {
+                        if (fromScienceList.innerHTML.includes("BIOL251L") == false || fromScienceList.innerHTML.includes("BIOL252") == false) {
+                            alert("Unable to add class. BIOL251L or BIOL252 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "BIOL275") {
+                        if (fromScienceList.innerHTML.includes("BIOL141") == false && fromScienceList.innerHTML.includes("CHEM102") == false) {
+                            alert("Unable to add class. BIOL141 and CHEM102 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "CHEM102L") {
+                        if (fromScienceList.innerHTML.includes("CHEM101") == false && fromScienceList.innerHTML.includes("CHEM102") == false) {
+                            alert("Unable to add class. CHEM101 and CHEM102 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "GES111") {
+                        if (fromScienceList.innerHTML.includes("CHEM101") == false) {
+                            alert("Unable to add class. CHEM101 and CHEM102 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "PHYS224") {
+                        if (fromScienceList.innerHTML.includes("PHYS121") == false) {
+                            alert("Unable to add class. PHYS121 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "PHYS224") {
+                        if (fromScienceList.innerHTML.includes("PHYS121") == false) {
+                            alert("Unable to add class. PHYS121 not taken.");
+                            flag = 1;
+                        }
+                    } else if (currentOption.selected == true && currentOption.value == "PHYS304") {
+                        if (fromScienceList.innerHTML.includes("PHYS121") == false) {
+                            alert("Unable to add class. PHYS121 not taken.");
+                            flag = 1;
                         }
                     }
                 }
+            }
 
 
 
@@ -1112,7 +1060,7 @@ function elecToChosen()
         <select id="elecList" size="20" name="electives" multiple style="overflow:auto;">
             <option value="CMSC426">CMSC 426 - Principles of Computer Security</option>
             <option value="CMSC431">CMSC 431 - Compiler Design Principles</option>
-            <option value="CMSC433">CMSC 433 - Scripting Languages</option>
+            <option value="CMSC431">CMSC 433 - Scripting Languages</option>
             <option value="CMSC435">CMSC 435 - Computer Graphics</option>
             <option value="CMSC437">CMSC 437 - Graphical User Interface Programming</option>
             <option value="CMSC448">CMSC 448 - Software Engineering II</option>
@@ -1185,17 +1133,14 @@ function elecToChosen()
                 <tr>
                     <td valign="top">
                         <div class="identification">
-                            Name:<br> 
-                            <input id="textfield" type="text" name="name" required ><br />
-			    Student ID:<br> 
-                            <input id="textfield" type="text" name="studentID" required ><br />
-			    E-mail:<br> 
-                            <input id="textfield" type="text" name="email" required ><br />
+                            <input id="textfield" type="text" name="name" required placeholder="Name"><br />
+                            <input id="textfield" type="text" name="studentID" required placeholder="Campus-ID"><br />
+                            <input id="textfield" type="text" name="email" style="top: 100%;" required placeholder="E-mail"><br />
                         </div>
                     </td>
                     <td>
                         <div class="classSelectList">
-                            <select id="chosenList" size="20" name="taken[]" multiple="multiple" multiple style="overflow:auto;">
+                            <select id="chosenList" size="20" name="taken[]" multiple="multiple">
                                 <optgroup id="fromReqList" label='Required Classes'></optgroup>
                                 <optgroup id="fromElecList" label='Electives'></optgroup>
                                 <optgroup id="fromScienceList" label='Science Electives'></optgroup>
@@ -1204,9 +1149,10 @@ function elecToChosen()
                         </div>
                     </td>
                 </tr>
-            </table><br>
+            </table>
             <input class="rippleButton" type="submit" style="border:solid white; border-width: thin" value="Submit">
         </form>
     </div>
 </body>
+</html>
 </html>
